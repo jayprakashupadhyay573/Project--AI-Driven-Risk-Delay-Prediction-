@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply Chain Risk Intelligence</title>
+
+<style>
+/* COLOR SYSTEM  */
+:root{
+    --wine:#7b1238;
+    --wine-dark:#4a0b21;
+    --wine-glow:#b1124d;
+
+    --blue:#2563eb;
+    --blue-glow:#60a5fa;
+
+    --white:#ffffff;
+    --glass:rgba(255,255,255,.85);
+    --text:#1f2933;
+    --muted:#6b7280;
+}
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins','Segoe UI',system-ui,sans-serif;
+}
+
+/* BACKGROUND  */
+body{
+    min-height:100vh;
+    padding:40px 20px;
+    background:
+        radial-gradient(circle at top left, var(--wine-glow), transparent 40%),
+        radial-gradient(circle at bottom right, var(--blue-glow), transparent 45%),
+        linear-gradient(135deg, var(--wine-dark), #0f172a);
+    background-size:200% 200%;
+    animation:bgMove 18s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/*  CONTAINER  */
+.container{
+    max-width:640px;
+    margin:auto;
+    background:var(--glass);
+    backdrop-filter:blur(18px);
+    padding:40px;
+    border-radius:28px;
+    box-shadow:
+        0 40px 80px rgba(0,0,0,.45),
+        inset 0 0 0 1px rgba(255,255,255,.4);
+    animation:cardIn 1s ease;
+}
+
+@keyframes cardIn{
+    from{opacity:0;transform:translateY(50px) scale(.9)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/*  HEADER  */
+h1{
+    text-align:center;
+    font-size:34px;
+    font-weight:700;
+    background:linear-gradient(135deg,var(--wine),var(--blue));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+p.intro{
+    text-align:center;
+    margin:12px 0 35px;
+    color:var(--muted);
+    font-size:15px;
+}
+
+/*  FORM  */
+label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:6px;
+    font-weight:600;
+    color:var(--text);
+}
+
+input{
+    width:100%;
+    padding:14px 16px;
+    border-radius:14px;
+    border:1px solid rgba(0,0,0,.15);
+    background:rgba(255,255,255,.7);
+    font-size:15px;
+    transition:.35s ease;
+}
+
+input:focus{
+    outline:none;
+    background:white;
+    border-color:var(--wine);
+    box-shadow:
+        0 0 0 3px rgba(123,18,56,.25),
+        0 10px 25px rgba(0,0,0,.15);
+    transform:translateY(-2px);
+}
+
+.range-info{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:4px;
+}
+
+/*  BUTTONS  */
+.btn-group{
+    display:flex;
+    gap:16px;
+    margin-top:35px;
+}
+
+button{
+    flex:1;
+    padding:16px;
+    border-radius:18px;
+    border:none;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition:.4s ease;
+}
+
+/* Submit */
+.btn-submit{
+    color:white;
+    background:linear-gradient(135deg,var(--wine),var(--blue));
+    box-shadow:0 18px 35px rgba(0,0,0,.35);
+}
+
+.btn-submit::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
+    transform:translateX(-100%);
+}
+
+.btn-submit:hover::after{
+    transform:translateX(100%);
+    transition:1s;
+}
+
+.btn-submit:hover{
+    transform:translateY(-3px) scale(1.02);
+}
+
+/* Reset */
+.btn-reset{
+    background:white;
+    color:var(--wine-dark);
+    border:2px solid var(--wine);
+}
+
+.btn-reset:hover{
+    background:var(--wine);
+    color:white;
+    transform:translateY(-3px) scale(1.02);
+}
+
+/*  RESULT  */
+.result{
+    margin-top:45px;
+    padding:30px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#ffffff,#eef2ff);
+    box-shadow:0 25px 45px rgba(0,0,0,.25);
+    animation:fadeUp .7s ease;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.high{color:#b91c1c;font-weight:700}
+.moderate{color:#ca8a04;font-weight:700}
+.low{color:#15803d;font-weight:700}
+
+ul{
+    margin-top:12px;
+    padding-left:22px;
+}
+ul li{
+    margin-bottom:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>AI-Driven Risk And Delay Prediction</h1>
+    <p class="intro">By Random Forest :)</p>
+
+    <form method="POST" action="/">
+        <label>Traffic Congestion Level</label>
+        <input type="number" name="traffic_congestion_level" required>
+
+        <label>Weather Condition Severity</label>
+        <input type="number" name="weather_condition_severity" required>
+
+        <label>Port Congestion Level</label>
+        <input type="number" name="port_congestion_level" required>
+
+        <label>Route Risk Level</label>
+        <input type="number" name="route_risk_level" required>
+
+        <label>Disruption Likelihood Score</label>
+        <input type="number" name="disruption_likelihood_score" min="0" max="1" step="any" required>
+
+        <label>Supplier Reliability Score</label>
+        <input type="number" name="supplier_reliability_score" min="0" max="1" step="any" required>
+
+        <label>ETA Variation (hours)</label>
+        <input type="number" name="eta_variation_hours" required>
+
+        <label>Fuel Consumption Rate</label>
+        <input type="number" name="fuel_consumption_rate" required>
+
+        <div class="btn-group">
+            <button type="submit" class="btn-submit">Analyze Risk</button>
+            <button type="reset" class="btn-reset">Reset</button>
+        </div>
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+        <strong>Risk Level:</strong>
+        <span class="{% if prediction.risk_class == 'High Risk' %}high
+                     {% elif prediction.risk_class == 'Moderate Risk' %}moderate
+                     {% else %}low{% endif %}">
+            {{ prediction.risk_class }}
+        </span>
+        ({{ prediction.probability }}%)
+
+        <ul>
+            {% for sug in prediction.suggestions %}
+            <li>{{ sug }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
