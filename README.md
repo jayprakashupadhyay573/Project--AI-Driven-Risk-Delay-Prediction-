@@ -78,8 +78,6 @@ A logistics company transporting goods from **Mumbai to Delhi** may face unexpec
 
 By entering operational parameters into this system, the model can **predict the probability of delivery delays**, allowing the logistics team to adjust routes or schedules proactively.
 
----
-
 ## Future Improvements
 
 * Real-time logistics data integration
@@ -87,15 +85,8 @@ By entering operational parameters into this system, the model can **predict the
 * Interactive dashboard for logistics analytics
 * Deep learning–based prediction models
 
----
-
 ## Project Demonstration
-
 Screenshots of the web interface and prediction results are included below.
-
----
-
 ## Author
-
 Jay Prakash Upadhyay
 B.Tech CSBS – oist
