@@ -87,6 +87,13 @@ By entering operational parameters into this system, the model can **predict the
 
 ## Project Demonstration
 Screenshots of the web interface and prediction results are included below.
+1.<img width="1097" height="706" alt="Random forest 1" src="https://github.com/user-attachments/assets/a0b0f746-1279-4278-b6bc-5afb511f468a" />
+2. <img width="1552" height="911" alt="randam forest 2" src="https://github.com/user-attachments/assets/86f7368e-975c-4326-96be-35f590ec7cff" />
+
+
+
+
+
 ## Author
 Jay Prakash Upadhyay
 B.Tech CSBS – oist
